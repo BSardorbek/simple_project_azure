@@ -39,7 +39,7 @@ jobs:
       - name: Log In to Azure Container App
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZ_SP_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure Container App
         run: |

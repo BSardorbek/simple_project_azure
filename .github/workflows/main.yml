@@ -25,21 +25,26 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: docker push  sardorbek96/simple_project_azure:latest
 
+  deploy:
+    runs-on: ubuntu-latest
 
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  
-  #   steps:
-  #     - name: Log In to Azure Container App
-  #       uses: azure/login@v1
-  #       with:
-  #         client-id: af22c1fb-6be2-4fee-8d3c-0b349f13f3cb
-  #         tenant-id: b4be46cf-f412-4c71-9405-35113a8dc0f9
-  #         subscription-id: c2021b07-37a5-4dd4-b829-955dac223bb9
-      
-  #     - uses: azure/webapps-deploy@v2
-  #       with:
-  #         app-name: 'sardorbek'
-  #         images: 'sardorbek96/simple_project_azure:dev-latest'
-      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          client-id: 'af22c1fb-6be2-4fee-8d3c-0b349f13f3cb'
+          tenant-id: 'b4be46cf-f412-4c71-9405-35113a8dc0f9'
+          subscription-id: 'c2021b07-37a5-4dd4-b829-955dac223bb9'
+
+      - name: Pull Docker image from Docker Hub
+        run: |
+          az acr login --name your-acr-name
+          docker pull ardorbek96/simple_project_azure:latest
+
+      - name: Deploy container to Azure Web App
+        run: |
+          az webapp config container set --name sardorbek --resource-group test_github_azure --docker-custom-image-name docker pull ardorbek96/simple_project_azure:latest

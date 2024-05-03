@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           file: Dockerfile
-          tags: sardorbek96/simple_project_azure:dev-latest
+          tags: sardorbek96/simple_project_azure:dev-1
           push: true
 
   deploy:

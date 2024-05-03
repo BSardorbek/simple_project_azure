@@ -44,8 +44,8 @@ jobs:
       - name: Deploy to Azure Container App
         run: |
           az containerapp update \
-            --name simple_project_azure \
-            --resource-group kml_rg_main-20c903b6fafe4da9 \
+            --name sardorbek \
+            --resource-group test_github_azure \
             --image sardorbek96/simple_project_azure:dev-latest \
             --registry-login-server docker.io \
             --registry-username sardorbek96 \

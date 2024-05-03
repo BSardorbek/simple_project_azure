@@ -39,10 +39,9 @@ jobs:
       - name: Log In to Azure Container App
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: af22c1fb-6be2-4fee-8d3c-0b349f13f3cb
+          tenant-id: b4be46cf-f412-4c71-9405-35113a8dc0f9
+          subscription-id: c2021b07-37a5-4dd4-b829-955dac223bb9
       
       - uses: azure/webapps-deploy@v2
         with:

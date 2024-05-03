@@ -15,9 +15,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: List files in the API directory
-        run: ls -la
-
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -31,20 +28,20 @@ jobs:
           tags: sardorbek96/simple_project_azure:dev-1
           push: true
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
   
-    steps:
-      - name: Log In to Azure Container App
-        uses: azure/login@v1
-        with:
-          client-id: af22c1fb-6be2-4fee-8d3c-0b349f13f3cb
-          tenant-id: b4be46cf-f412-4c71-9405-35113a8dc0f9
-          subscription-id: c2021b07-37a5-4dd4-b829-955dac223bb9
+  #   steps:
+  #     - name: Log In to Azure Container App
+  #       uses: azure/login@v1
+  #       with:
+  #         client-id: af22c1fb-6be2-4fee-8d3c-0b349f13f3cb
+  #         tenant-id: b4be46cf-f412-4c71-9405-35113a8dc0f9
+  #         subscription-id: c2021b07-37a5-4dd4-b829-955dac223bb9
       
-      - uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'sardorbek'
-          images: 'sardorbek96/simple_project_azure:dev-latest'
+  #     - uses: azure/webapps-deploy@v2
+  #       with:
+  #         app-name: 'sardorbek'
+  #         images: 'sardorbek96/simple_project_azure:dev-latest'
       

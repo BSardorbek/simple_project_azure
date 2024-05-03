@@ -23,7 +23,7 @@ jobs:
         run: docker build -t sardorbek96/simple_project_azure:latest .
 
       - name: Push Docker image to Docker Hub
-        run: docker push your-dockerhub-username/your-image-name:latest
+        run: docker push  sardorbek96/simple_project_azure:latest
 
 
   # deploy:

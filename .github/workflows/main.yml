@@ -48,5 +48,5 @@ jobs:
         with:
           app-name: 'sardorbek'
           publish-profile:  ${{ secrets.AZURE_CREDENTIALS_P }}
-          images: ardorbek96/simple_project_azure:v1.0.0
+          images: sardorbek96/simple_project_azure:v1.0.0
           

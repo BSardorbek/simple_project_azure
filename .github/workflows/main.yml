@@ -47,6 +47,6 @@ jobs:
         uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
         with:
           app-name: 'sardorbek'
-          publish-profile:  ${{ secrets.AZURE_CREDENTIALS }}
+          publish-profile:  ${{ secrets.AZURE_CREDENTIALS_P }}
           images: ardorbek96/simple_project_azure:v1.0.0
           

@@ -24,7 +24,7 @@ jobs:
         run: docker build -t sardorbek96/simple_project_azure:latest-${{ github.sha }} .
 
       - name: Push Docker image to Docker Hub
-        run: docker push  sardorbek96/simple_project_azure:latest-:${{ github.sha }}
+        run: docker push  sardorbek96/simple_project_azure:latest-${{ github.sha }}
 
   deploy:
     needs: build

@@ -45,5 +45,5 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: 'sardor'
+          app-name: 'sardorbek'
           images: ardorbek96/simple_project_azure:latest

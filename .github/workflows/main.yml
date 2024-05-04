@@ -21,10 +21,10 @@ jobs:
           password: dckr_pat_UUz7DZY7fTm8maEXG0dYUnI5RHw
 
       - name: Build Docker image
-        run: docker build -t sardorbek96/simple_project_azure:latest-${{ github.sha }} .
+        run: docker build -t sardorbek96/simple_project_azure:latest .
 
       - name: Push Docker image to Docker Hub
-        run: docker push  sardorbek96/simple_project_azure:latest-${{ github.sha }}
+        run: docker push  sardorbek96/simple_project_azure:latest
 
   deploy:
     needs: build
@@ -46,4 +46,4 @@ jobs:
       - uses: azure/webapps-deploy@v2
         with:
           app-name: 'sardor'
-          images: ardorbek96/simple_project_azure:latest-${{ github.sha }}
+          images: ardorbek96/simple_project_azure:latest
